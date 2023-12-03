@@ -1,0 +1,110 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "firstName": "Kyle",
+      "lastName": "Arandilla",
+      "nameofBook": "The Thief",
+      "email": "kyle.arandilla@gmail.com",
+      "id": 2
+    },
+    {
+      "firstName": "Kyle",
+      "lastName": "Arandilla",
+      "nameofBook": "The Thief",
+      "email": "kyle.arandilla@gmail.com",
+      "id": 3
+    },
+    {
+      "firstName": "Kyle",
+      "lastName": "Arandilla",
+      "nameofBook": "The Thief",
+      "email": "kyle.arandilla@gmail.com",
+      "id": 4
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "nameofBook": "test",
+      "email": "test@gmail.com",
+      "id": 5
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "nameofBook": "test",
+      "email": "test@gmail.com",
+      "id": 6
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "nameofBook": "test",
+      "email": "test@gmail.com",
+      "id": 7
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "nameofBook": "test",
+      "email": "test@gmail.com",
+      "id": 8
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "nameofBook": "test",
+      "email": "test@gmail.com",
+      "id": 9
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "nameofBook": "test",
+      "email": "test@gmail.com",
+      "id": 10
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "nameofBook": "test",
+      "email": "test@gmail.com",
+      "id": 11
+    },
+    {
+      "firstName": "sasa",
+      "lastName": "sasas",
+      "nameofBook": "sasasas",
+      "email": "sasas@gmail.com",
+      "id": 12
+    },
+    {
+      "firstName": "dasda",
+      "lastName": "dadad",
+      "nameofBook": "dadad",
+      "email": "daadad",
+      "id": 13
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "nameofBook": "test",
+      "email": "test@gmail.com",
+      "id": 14
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

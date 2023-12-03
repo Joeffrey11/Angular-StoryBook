@@ -1,0 +1,81 @@
+<div class="p-5">
+    <div class="d-flex">
+      <button (click)="clickAddWriter()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add User</button>
+    </div>
+</div>
+
+<table class="table mt-3">
+  <thead>
+   <tr>
+    <th scope="col">No.</th>
+    <th scope="col">First Name</th>
+    <th scope="col">Last Name</th>
+    <th scope="col">Email ID</th>
+    <th scope="col">Role</th>
+    <th scope="col">Action</th>
+   </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let writer of writerData; index as i">
+      <td>{{ i + 1 }}</td>
+      <td>{{ writer.first_name }}</td>
+      <td>{{ writer.last_name }}</td>
+      <td>{{ writer.email }}</td>
+      <td>{{ writer.role_name }}</td>
+      <td>
+        <button (click)="getWriter(writer)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>
+        <button (click)="deleteWriter(writer)" class="btn btn-danger mx-3">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+  
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" data-type="new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Writer Details</h5>
+        <button type="button" (click)="close()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <input type="text" placeholder="Please Enter Your First Name" formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Last Name</label>
+            <input type="text" placeholder="Please Enter Your Last Name" formControlName="lastName" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Email ID</label>
+            <input type="email" placeholder="Please Enter Your Email" formControlName="email" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="username" class="form-label">User Name</label>
+            <input type="text" placeholder="Please Enter Your User Name" formControlName="username" class="form-control" id="username" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" formControlName="password" class="form-control" id="password">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Roles</label>
+            <select class="form-select" placeholder="Select Role" formControlName="role_id" aria-label="Default select example">
+              <option [value]="role.role_id" *ngFor="let role of roleData; let i = index;"  [selected]="i == 1">{{ role.name }}</option>
+            </select>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="close()" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" *ngIf="showAdd" (click)="postWriterDetails()" class="btn btn-primary">Add</button>
+        <button type="button" *ngIf="showUpdate" (click)="UpdateWriterDetails()" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

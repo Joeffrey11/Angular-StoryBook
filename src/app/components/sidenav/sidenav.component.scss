@@ -1,0 +1,47 @@
+.sidenav{
+    width: 250px;
+    background-color: 	#333333;
+    height: 100%;
+    min-height: 100vh;
+
+}
+
+
+.sidenav-links{
+    li{
+        color: rgb(255, 255, 255);
+        font-size: 1.1rem;
+        padding: 5px 10px;
+        cursor: pointer;
+        margin: 5px 0;
+        border-radius: .3em;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+
+        &:hover{
+            background-color: #807F7E;
+        }
+    }
+}
+.story {
+    color: #2AC6A6;
+}
+
+.book {
+    color: 	#286283;
+}
+ .container {
+    transform: translate(0px, 20px);
+ }
+
+ #Logo{
+    display:block;
+    position: relative;
+    border-radius:55%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 150px;
+    transform: translate(-0%, -0%);
+}
