@@ -11,9 +11,9 @@ import { TopnavComponent } from './components/topnav/topnav.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ScreenComponent } from './components/screen/screen.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HungerComponent } from './hunger/hunger.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 
 
@@ -22,7 +22,6 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    HungerComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegistrationModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxStarRatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
