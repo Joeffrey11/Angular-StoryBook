@@ -5,7 +5,6 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { TopnavComponent } from '../components/topnav/topnav.component';
 import { SidenavComponent } from '../components/sidenav/sidenav.component';
 import { ScreenComponent } from '../components/screen/screen.component';
-import { WriterDashboardComponent } from './writer-dashboard/writer-dashboard.component';
 import { ReaderDashboardComponent } from './reader-dashboard/reader-dashboard.component';
 
 
@@ -18,7 +17,6 @@ import { ReaderDashboardComponent } from './reader-dashboard/reader-dashboard.co
     TopnavComponent,
     SidenavComponent,
     ScreenComponent,
-    WriterDashboardComponent,
     ReaderDashboardComponent,
    
   ],

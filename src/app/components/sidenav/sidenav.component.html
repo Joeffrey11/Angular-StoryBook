@@ -19,9 +19,52 @@
             <li *ngIf="userPosition === 'admin'" routerLink="/product" routerLinkActive="link-active" class="list-group-item list-group-item-action d-flex gap-2">
                 <i class="bi bi-bag-fill"></i><span>Books</span>
             </li>
-            <li routerLink="/login"  class="list-group-item list-group-item-action d-flex gap-2">
+            <li routerLink="/login" class="list-group-item list-group-item-action d-flex gap-2">
                 <i class="bi bi-box-arrow-left"></i><span>Logout</span>
+            </li>
+            <li *ngIf="userPosition === 'writer'" routerLink="/writer" routerLinkActive="link-active" class="list-group-item list-group-item-action d-flex gap-2"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success" >
+                <i class="bi bi-speedometer"></i><span>Add Book</span>
             </li>
           </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" data-type="new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="transform: translate(100px, 150px);">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Book Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Book Name</label>
+              <input type="text" placeholder="Please Enter Your Book Name" formControlName="bookName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Last Name</label>
+              <input type="text" placeholder="Please Enter Your Last Name" formControlName="lastName" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Email ID</label>
+              <input type="email" placeholder="Please Enter Your Email" formControlName="email" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+              <label for="username" class="form-label">User Name</label>
+              <input type="text" placeholder="Please Enter Your User Name" formControlName="username" class="form-control" id="username" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" formControlName="password" class="form-control" id="password">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>

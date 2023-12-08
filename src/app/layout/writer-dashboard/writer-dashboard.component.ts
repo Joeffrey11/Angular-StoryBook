@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-writer-dashboard',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./writer-dashboard.component.scss']
 })
 export class WriterDashboardComponent {
+ 
 
+  // Add any other methods or logic you need
 }
