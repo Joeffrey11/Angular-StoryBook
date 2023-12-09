@@ -1,102 +1,116 @@
 <body>
-    <h1 class="home">Welcome to Registration</h1>
-    <img src="../../assets/book.png" alt="" id="Logo">
-    <div class="container mt-5">
-      
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-  
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">For Writer</a>
-            </li>
-  
-            <li class="nav-item">
-              <a class="nav-link" id="registration-tab" data-bs-toggle="tab" href="#registration" role="tab" aria-controls="registration" aria-selected="false">For Reader</a>
-            </li>
-          </ul>
-  
-        <div class="tab-content" id="myTabContent">
-  
-          <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-           <form>
-                <div class="mb-3">
-                  <label for="regFirstName" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="regFirstName" placeholder="Enter your first name" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="regLastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="regLastName" placeholder="Enter last name" required>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="regEmail" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="regEmail" placeholder="Enter your email" required>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="regUserName" class="form-label">UserName</label>
-                    <input type="text" class="form-control" id="regUserName" placeholder="Enter your username" required>
-                  </div>
-  
-                <div class="mb-3">
-                  <label for="logPassword" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="regConPassword" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="regPassword" placeholder="Confirm password" required>
-                  </div>
-  
-                <div class="mb-3">
-                  <button type="submit" class="btn btn-primary">Register</button>
-                </div>
-            </form>
+  <h1 class="home">Welcome to Registration</h1>
+  <img src="../../assets/book.png" alt="" id="Logo" />
+  <div class="container mt-5 d-flex justify-content-center">
+    <div class="card w-50">
+      <form [formGroup]="user">
+        <div class="card-header">
+          <div class="form-check form-check-inline" *ngFor="let role of roles">
+            <input
+              class="form-check-input border border-dark"
+              formControlName="role_id"
+              type="radio"
+              [value]="role.role_id"
+              [name]="roles.name"
+            />
+            <label class="form-check-label" [for]="roles.name">{{
+              role.name
+            }}</label>
           </div>
-  
-           
-          <div class="tab-pane fade" id="registration" role="tabpanel" aria-labelledby="registration-tab">
-            <form>
-                <div class="mb-3">
-                  <label for="regFirstName" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="regFirstName" placeholder="Enter your first name" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="regLastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="regLastName" placeholder="Enter last name" required>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="regEmail" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="regEmail" placeholder="Enter your email" required>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="regUserName" class="form-label">UserName</label>
-                    <input type="text" class="form-control" id="regUserName" placeholder="Enter your username" required>
-                  </div>
-  
-                <div class="mb-3">
-                  <label for="logPassword" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="regConPassword" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="regPassword" placeholder="Confirm password" required>
-                  </div>
-  
-                <div class="mb-3">
-                  <button type="submit" class="btn btn-primary">Register</button>
-                </div>
-            </form>
-              </div>
-
         </div>
+        <div class="card-body">
+          <div class="tab-pane fade show active">
+            <div class="mb-3">
+              <label for="regFirstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="regFirstName"
+                formControlName="firstName"
+                placeholder="Enter your first name"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="regLastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="regLastName"
+                formControlName="lastName"
+                placeholder="Enter last name"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="regEmail" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="regEmail"
+                formControlName="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="regUserName" class="form-label">UserName</label>
+              <input
+                type="text"
+                class="form-control"
+                id="regUserName"
+                (focusout)="verifyUserName()"
+                formControlName="username"
+                placeholder="Enter your username"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="logPassword" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="loginPassword"
+                formControlName="password"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="regConPassword" class="form-label"
+                >Confirm Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="regPassword"
+                (focusout)="comparePassword()"
+                formControlName="confirm_password"
+                placeholder="Confirm password"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <button
+                type="submit"
+                (click)="register()"
+                class="btn btn-primary"
+              >
+                Register
+              </button>
+              <a href="#" routerLink="/login" class="float-end mt-1">
+                Already have an account? Click here to login
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
-  </body>
+  </div>
+</body>
