@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { UserService } from 'src/app/shared/user.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { UserService } from 'src/app/shared/user.service';
 export class SidenavComponent implements OnInit, OnDestroy {
   userPosition!: string;
   userPositionSubscription!: Subscription;
+
   constructor(
     private userPositionService: UserService,
     private router: Router
@@ -27,7 +29,6 @@ export class SidenavComponent implements OnInit, OnDestroy {
     localStorage.removeItem('expires_at');
     this.router.navigateByUrl('/login');
   }
-
   ngOnDestroy(): void {
     this.userPositionSubscription.unsubscribe();
   }

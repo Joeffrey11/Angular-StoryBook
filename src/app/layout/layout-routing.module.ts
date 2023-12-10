@@ -12,13 +12,7 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: '',
-        redirectTo: 'dashboard',
-        pathMatch: 'prefix',
-      },
-      {
         path: 'admin',
-        canActivateChild: [authGuard],
         loadChildren: () =>
           import('./dashboard/dashboard.module').then(
             (mod) => mod.DashboardModule
@@ -26,17 +20,14 @@ const routes: Routes = [
       },
       {
         path: 'reader',
-        canActivate: [authGuard],
         component: ReaderDashboardComponent,
       },
       {
         path: 'writer',
-        canActivate: [authGuard],
         component: WriterDashboardComponent,
       },
       {
         path: 'user-management',
-        canActivate: [authGuard],
         loadChildren: () =>
           import('./user-management/user-management.module').then(
             (mod) => mod.UserManagementModule
@@ -44,7 +35,6 @@ const routes: Routes = [
       },
       {
         path: 'product',
-        canActivateChild: [authGuard],
         loadChildren: () =>
           import('./product/product.module').then((mod) => mod.ProductModule),
       },

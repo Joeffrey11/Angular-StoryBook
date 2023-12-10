@@ -31,9 +31,7 @@ export class LoginComponent {
       this.setSession(res);
       this.userService.changeUserPosition(res.data.role_name);
       alert('Login successful!');
-      setInterval(() => {
-        this.router.navigate([`${res.data.role_name}`]);
-      }, 500);
+      this.router.navigate([`${res.data.role_name}`]);
     });
   }
 
