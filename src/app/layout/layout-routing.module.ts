@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReaderDashboardComponent } from './reader-dashboard/reader-dashboard.component';
 import { WriterDashboardComponent } from './writer-dashboard/writer-dashboard.component';
 import { authGuard } from '../auth/auth.guard';
+import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
         path: 'reader',
         component: ReaderDashboardComponent,
         canActivate: [authGuard],
+      },
+      {
+        path: 'view',
+        component: ViewComponent
       },
       {
         path: 'writer',
