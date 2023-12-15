@@ -1,0 +1,122 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form
+        [formGroup]="bookForm"
+        (ngSubmit)="addBook($event)"
+        enctype="multipart/form-data"
+      >
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Book Details</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Writer Name</label>
+            <input
+              type="text"
+              placeholder="Please Enter Your Name"
+              formControlName="writer_name"
+              class="form-control"
+              required=""
+            />
+            <span
+              style="color: red; font-size: 12px"
+              *ngIf="writer_name?.invalid && writer_name?.touched"
+              >Writer Name is required</span
+            >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Book Name</label>
+            <input
+              type="text"
+              placeholder="Please Enter Your Book Name"
+              formControlName="name"
+              class="form-control"
+              required=""
+            />
+            <span
+              style="color: red; font-size: 12px"
+              *ngIf="name?.invalid && name?.touched"
+              >Book Name is required</span
+            >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Genre</label>
+            <input
+              type="text"
+              placeholder="Please Enter Your Genre"
+              formControlName="genre"
+              class="form-control"
+              required=""
+            />
+            <span
+              style="color: red; font-size: 12px"
+              *ngIf="genre?.invalid && genre?.touched"
+              >Genre is required</span
+            >
+          </div>
+          <div class="custom-file">
+            <label class="custom-file-label" for="validatedCustomFile"
+              >Book Image</label
+            >
+            <input
+              type="file"
+              class="custom-file-input"
+              (change)="getFile($event)"
+              id="validatedCustomFile"
+              required
+            />
+          </div>
+          <div class="form-outline, mt-3">
+            <label class="form-label" for="textAreaExample">Description</label>
+            <textarea
+              class="form-control"
+              required=""
+              formControlName="description"
+              placeholder="Please Enter Your Story"
+              name="body"
+              id="textAreaExample1"
+              rows="4"
+            ></textarea>
+            <span
+              style="color: red; font-size: 12px"
+              *ngIf="description?.invalid && description?.touched"
+              >Description is required</span
+            >
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            [disabled]="bookForm.invalid"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

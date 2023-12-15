@@ -73,42 +73,6 @@
       </li>
     </div>
   </div>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Book Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Writer Name</label>
-          <input type="text" placeholder="Please Enter Your Name" formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Book Name</label>
-          <input type="text" placeholder="Please Enter Your Book Name" formControlName="bookName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Genre</label>
-          <input type="text" placeholder="Please Enter Your Genre" formControlName="genre" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="custom-file">
-          <label class="custom-file-label" for="validatedCustomFile"><br>Img</label>
-          <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-        </div>
-        <div class="form-outline, mt-3">
-          <label class="form-label" for="textAreaExample">Description</label>
-          <textarea class="form-control" placeholder="Please Enter Your Story" name="body" id="textAreaExample1" rows="4"></textarea>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add</button>
-      </div>
-    </div>
-  </div>
+  <app-add-book-modal></app-add-book-modal>
 </div>

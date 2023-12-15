@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
+import { WriterService } from 'src/app/layout/writer-dashboard/writer.service';
 import { UserService } from 'src/app/shared/user.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
 
   constructor(
     private userPositionService: UserService,
+    private writerService: WriterService,
     private router: Router
   ) {}
   ngOnInit(): void {

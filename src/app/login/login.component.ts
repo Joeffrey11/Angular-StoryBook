@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../shared/user.service';
-import { AuthService } from '../shared/auth.service';
 import * as moment from 'moment';
+import { AuthService } from '../shared/auth.service';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +28,8 @@ export class LoginComponent {
       if (res.data === undefined) {
         return;
       }
+      // set user_id to localstorage for writer id
+      localStorage.setItem('writer_id', res.data.user_id);
       this.setSession(res);
       this.userService.changeUserPosition(res.data.role_name);
       alert('Login successful!');

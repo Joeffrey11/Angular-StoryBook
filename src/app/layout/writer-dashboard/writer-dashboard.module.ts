@@ -1,20 +1,19 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WriterDashboardRoutingModule } from './writer-dashboard-routing.module';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { EditBookModalComponent } from 'src/app/components/edit-book-modal/edit-book-modal.component';
+import { WriterDashboardRoutingModule } from './writer-dashboard-routing.module';
 import { WriterDashboardComponent } from './writer-dashboard.component';
 
 @NgModule({
-  declarations: [
-    WriterDashboardComponent
-  ],
+  declarations: [WriterDashboardComponent, EditBookModalComponent],
   imports: [
     CommonModule,
     WriterDashboardRoutingModule,
     ComponentsModule,
     ReactiveFormsModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
-export class WriterDashboardModule { }
+export class WriterDashboardModule {}

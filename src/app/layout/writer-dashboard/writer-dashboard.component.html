@@ -1,123 +1,60 @@
-<h1 style="text-align: center;" class="mt-3">Library</h1>
+<h1 style="text-align: center" class="mt-3">Library</h1>
 
-<table class="table mt-3">
-    <thead>
-     <tr>
+<table class="table mt-3 p-5">
+  <thead>
+    <tr>
       <th scope="col">No.</th>
+      <th scope="col">Book Image</th>
       <th scope="col">Book Name</th>
       <th scope="col">Genre</th>
+      <th scope="col">Description</th>
       <th scope="col">Action</th>
-     </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>The Hunger Games</td>
-        <td>Adventure Science fiction</td>
-        <td>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger mx-3">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>The Great Gatsby</td>
-        <td>Tragedy</td>
-        <td>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger mx-3">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>City of Girls</td>
-        <td>Romance Novel</td>
-        <td>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger mx-3">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>The Giver</td>
-        <td>Science Fiction</td>
-        <td>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger mx-3">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>Hell of a Book</td>
-        <td>Southern Fiction</td>
-        <td>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger mx-3">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>The Kite Runner</td>
-        <td>Drama</td>
-        <td>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger mx-3">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>Act of Oblivion</td>
-        <td>Historical Fiction</td>
-        <td>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger mx-3">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>The Lord of the Rings</td>
-        <td>Fantasy Fiction</td>
-        <td>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger mx-3">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>Fifty Shades of Grey</td>
-        <td>Romance Novel</td>
-        <td>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger mx-3">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>Sherlock Holmes</td>
-        <td>Drama</td>
-        <td>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger mx-3">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>11</td>
-        <td>The Fault in Our Stars</td>
-        <td>Novel</td>
-        <td>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger mx-3">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td>The Book Thief</td>
-        <td>Novel</td>
-        <td>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger mx-3">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-    
-  </table>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books; index as i">
+      <td *ngIf="isLoading">loading...</td>
+      <td>{{ i + 1 }}</td>
+      <td>
+        <img
+          style="object-fit: cover"
+          width="80px"
+          height="80px"
+          src="{{ book.url }}"
+          alt=""
+        />
+      </td>
+
+      <td>{{ book.name }}</td>
+      <td>{{ book.genre }}</td>
+      <td>
+        {{
+          book.description.length > 50
+            ? book.description.substring(0, 50) + "..."
+            : book.description
+        }}
+      </td>
+      <td class="d-flex">
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#editBookModal"
+          class="btn btn-primary p-2 m-1"
+          (click)="selectItem(book.book_id)"
+        >
+          Edit
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-danger p-2 m-1"
+          (click)="removeBook(book.book_id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-edit-book-modal></app-edit-book-modal>
