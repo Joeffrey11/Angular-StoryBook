@@ -10,6 +10,7 @@ export interface Book {
   genre: string;
   url: string;
   description: string;
+  body: string;
 }
 
 @Injectable({
@@ -36,6 +37,7 @@ export class WriterService {
         genre: data.genre,
         url: img_url,
         description: data.description,
+        body: data.body,
       })
       .pipe(catchError(this.handleError));
   }
@@ -66,6 +68,7 @@ export class WriterService {
         genre: data.genre,
         url: img_url,
         description: data.description,
+        body: data.body,
       })
       .pipe(catchError(this.handleError));
   }

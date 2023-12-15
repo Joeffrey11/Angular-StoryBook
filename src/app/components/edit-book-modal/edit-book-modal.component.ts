@@ -16,6 +16,7 @@ export class EditBookModalComponent implements OnInit {
     name: new FormControl('', [Validators.required]),
     genre: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
+    body: new FormControl(''),
   });
 
   constructor(private writerService: WriterService) {}
@@ -34,7 +35,7 @@ export class EditBookModalComponent implements OnInit {
   loadBookData(id: any) {
     this.isLoading = true;
     this.writerService.getOneBookById(id).subscribe((result) => {
-      const { writer_name, name, genre, description } = result.data[0];
+      const { writer_name, name, genre, description, body } = result.data[0];
       this.isLoading = false;
 
       this.bookForm.patchValue({
@@ -42,6 +43,7 @@ export class EditBookModalComponent implements OnInit {
         name: name,
         genre: genre,
         description: description,
+        body: body,
       });
     });
   }

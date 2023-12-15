@@ -14,6 +14,7 @@ export class AddBookModalComponent {
     name: new FormControl('', [Validators.required]),
     genre: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
+    body: new FormControl(''),
   });
 
   constructor(private writerService: WriterService) {}

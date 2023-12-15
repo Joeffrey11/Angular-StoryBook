@@ -88,16 +88,28 @@
               class="form-control"
               required=""
               formControlName="description"
-              placeholder="Please Enter Your Story"
+              placeholder="Please Enter Description"
               name="body"
               id="textAreaExample1"
-              rows="4"
+              rows="2"
             ></textarea>
             <span
               style="color: red; font-size: 12px"
               *ngIf="description?.invalid && description?.touched"
               >Description is required</span
             >
+          </div>
+          <div class="form-outline, mt-3">
+            <label class="form-label" for="textAreaExample">Story</label>
+            <textarea
+              class="form-control"
+              required=""
+              formControlName="body"
+              placeholder="Please Enter Your Story"
+              name="body"
+              id="textAreaExample1"
+              rows="4"
+            ></textarea>
           </div>
         </div>
         <div class="modal-footer">
