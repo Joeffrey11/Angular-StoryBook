@@ -21,7 +21,7 @@
           style="object-fit: cover"
           width="80px"
           height="80px"
-          src="{{ book.url }}"
+          src="http://localhost:8085/book_img/{{ book.url }}"
           alt=""
         />
       </td>
@@ -36,7 +36,7 @@
         }}
       </td>
       <td>
-        {{ book.body ? book.body.substring(0, 30) + "..." : "" }}
+        {{ book.body.length > 30 ? book.body.substring(0, 30) + "..." : "" }}
       </td>
       <td class="d-flex">
         <button

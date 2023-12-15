@@ -8,7 +8,7 @@ export interface Book {
   writer_name: string;
   name: string;
   genre: string;
-  url: string;
+  url?: string;
   description: string;
   body: string;
 }
@@ -28,17 +28,18 @@ export class WriterService {
     return this.selectedId.asObservable();
   }
 
-  addBook(data: any, writer_id: any, img_url: any): Observable<any> {
+  addBook(data: any, writer_id: any, book_img: any): Observable<any> {
+    const formData = new FormData();
+    formData.append('writer_id', writer_id);
+    formData.append('writer_name', data.writer_name);
+    formData.append('name', data.name);
+    formData.append('genre', data.genre);
+    formData.append('description', data.description);
+    formData.append('body', data.body);
+    formData.append('book_img', book_img);
+
     return this.http
-      .post<Book>(this.baseUrl + '/book', {
-        writer_id: writer_id,
-        writer_name: data.writer_name,
-        name: data.name,
-        genre: data.genre,
-        url: img_url,
-        description: data.description,
-        body: data.body,
-      })
+      .post<Book>(this.baseUrl + '/book', formData)
       .pipe(catchError(this.handleError));
   }
 
@@ -60,16 +61,17 @@ export class WriterService {
       .pipe(catchError(this.handleError));
   }
 
-  updateBook(data: any, img_url: any, id: number): Observable<any> {
+  updateBook(data: any, book_img: any, id: number): Observable<any> {
+    const formData = new FormData();
+    formData.append('writer_name', data.writer_name);
+    formData.append('name', data.name);
+    formData.append('genre', data.genre);
+    formData.append('description', data.description);
+    formData.append('body', data.body);
+    formData.append('book_img', book_img);
+
     return this.http
-      .put<Book>(this.baseUrl + `/book/${id}`, {
-        writer_name: data.writer_name,
-        name: data.name,
-        genre: data.genre,
-        url: img_url,
-        description: data.description,
-        body: data.body,
-      })
+      .put<Book>(this.baseUrl + `/book/${id}`, formData)
       .pipe(catchError(this.handleError));
   }
 

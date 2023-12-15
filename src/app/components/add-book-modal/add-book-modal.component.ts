@@ -20,10 +20,9 @@ export class AddBookModalComponent {
   constructor(private writerService: WriterService) {}
 
   addBook(event: Event) {
-    let img_url = URL.createObjectURL(this.book_img);
     let writer_id = localStorage.getItem('writer_id');
     this.writerService
-      .addBook(this.bookForm.value, writer_id, img_url)
+      .addBook(this.bookForm.value, writer_id, this.book_img)
       .subscribe((result) => {
         if (result.status) {
           alert('Book successfully created');
@@ -35,7 +34,10 @@ export class AddBookModalComponent {
   }
 
   getFile(event: any) {
-    this.book_img = event.target.files[0];
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.book_img = file;
+    }
   }
 
   get writer_name() {

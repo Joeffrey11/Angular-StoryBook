@@ -9,6 +9,7 @@ import { WriterService } from 'src/app/layout/writer-dashboard/writer.service';
 })
 export class EditBookModalComponent implements OnInit {
   selected_id: any;
+
   isLoading = false;
   book_img: any;
   bookForm = new FormGroup({
@@ -51,9 +52,8 @@ export class EditBookModalComponent implements OnInit {
   editBook(event: Event) {
     this.isLoading = true;
 
-    let img_url = URL.createObjectURL(this.book_img);
     this.writerService
-      .updateBook(this.bookForm.value, img_url, this.selected_id)
+      .updateBook(this.bookForm.value, this.book_img, this.selected_id)
       .subscribe((result) => {
         if (result.status) {
           this.isLoading = false;
@@ -67,7 +67,10 @@ export class EditBookModalComponent implements OnInit {
   }
 
   getFile(event: any) {
-    this.book_img = event.target.files[0];
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.book_img = file;
+    }
   }
 
   get writer_name() {
