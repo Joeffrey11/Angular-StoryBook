@@ -8,7 +8,7 @@
       <th scope="col">Book Name</th>
       <th scope="col">Genre</th>
       <th scope="col">Description</th>
-      <th scope="col">Story</th>
+      <!--<th scope="col">Story</th>-->
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -30,14 +30,12 @@
       <td>{{ book.genre }}</td>
       <td>
         {{
-          book.description.length > 50
-            ? book.description.substring(0, 50) + "..."
+          book.description.length > 100
+            ? book.description.substring(0, 100) + "..."
             : book.description
         }}
       </td>
-      <td>
-        {{ book.body.length > 30 ? book.body.substring(0, 30) + "..." : "" }}
-      </td>
+      
       <td class="d-flex">
         <button
           type="button"
